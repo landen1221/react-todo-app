@@ -5,11 +5,11 @@ import Todo from "./Todo";
 
 const TodoList = () => {
     const TEST_TODO = [{key: uuid(), todo: 'Walk the dog'}]
-    const TEST_COMPLETED = [{key: '', todo: ''}]
+    // const TEST_COMPLETED = [{key: '', todo: ''}]
 
   const [tasks, setTask] = useState(TEST_TODO);
   
-  const [completedTasks, setCompletedTask] = useState(TEST_COMPLETED);
+  const [completedTasks, setCompletedTask] = useState([]);
 
   const addTask = ({ todo }) => {
     setTask((tasks) => [...tasks, { todo, key: uuid() }]);
@@ -18,7 +18,6 @@ const TodoList = () => {
 
   const removeTask = (key) => {
     setCompletedTask((completedTasks) => [...completedTasks, tasks.filter(obj => obj.key === key)[0]]); 
-    console.log(completedTasks) 
     setTask((tasks) => tasks.filter(obj => obj.key !== key))
   }
 
@@ -35,7 +34,7 @@ const TodoList = () => {
       <br/>
       <hr/>
       <br/>
-      <h3>Completed</h3>
+      <h3><u>Completed</u></h3>
       <ul>
           
           {completedTasks.map (({todo, key}) => (

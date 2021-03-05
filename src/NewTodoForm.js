@@ -22,7 +22,6 @@ const NewTodoForm = ({ addTask }) => {
 
   return (
     <div>
-      <h3>This is the form to add a task!</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="todo">New Todo: </label>
         <input
